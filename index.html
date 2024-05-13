@@ -24,40 +24,43 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: cutAndLight 4s forwards, fadeOutText 2s 4s forwards, fadeInText 2s 6s forwards;
+    opacity: 1;
+    animation: swordCut 2s forwards, burnImage 2s 3s forwards, fadeOut 2s 5s forwards;
   }
 
-  @keyframes cutAndLight {
+  @keyframes swordCut {
     0% {
       clip-path: inset(0 0 0 0);
-      opacity: 0;
+    }
+    25% {
+      clip-path: inset(0 25% 0 0);
     }
     50% {
       clip-path: inset(0 50% 0 0);
-      opacity: 1;
+    }
+    75% {
+      clip-path: inset(0 75% 0 0);
     }
     100% {
-      clip-path: inset(0 50% 0 50%);
-      opacity: 1;
+      clip-path: inset(0 100% 0 0);
     }
   }
 
-  @keyframes fadeOutText {
+  @keyframes burnImage {
+    0% {
+      filter: brightness(100%);
+    }
+    100% {
+      filter: brightness(50%);
+    }
+  }
+
+  @keyframes fadeOut {
     0% {
       opacity: 1;
     }
     100% {
       opacity: 0;
-    }
-  }
-
-  @keyframes fadeInText {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
     }
   }
 
@@ -73,22 +76,14 @@
     animation: fadeInText 2s 6s forwards;
   }
 
-  #defaultGuy {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 18px;
-    color: #fff;
-    opacity: 0;
-    animation: fadeInText 2s 4s forwards;
-  }
 </style>
 </head>
 <body>
 <div id="container">
-  <div id="defaultGuy">Default Guy</div>
-  <img id="image" src="https://raw.githubusercontent.com/Amarnathgoogle/Kill-default-/main/5412308efa9ae5c5c2da2268a9dc1287.png" alt="Image">
+  <div id="imageContainer">
+    <img id="image" src="https://raw.githubusercontent.com/Amarnathgoogle/Kill-default-/main/5412308efa9ae5c5c2da2268a9dc1287.png" alt="Image">
+    <div id="defaultGuy">Default Guy</div>
+  </div>
   <div id="text">You will find a new mate soon</div>
 </div>
 </body>
