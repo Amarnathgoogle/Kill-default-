@@ -25,7 +25,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    animation: cutAndLight 3s forwards, fadeInText 2s 3s forwards;
+    animation: cutAndLight 4s forwards, fadeOutText 2s 4s forwards, fadeInText 2s 6s forwards;
   }
 
   @keyframes cutAndLight {
@@ -43,6 +43,15 @@
     }
   }
 
+  @keyframes fadeOutText {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   @keyframes fadeInText {
     0% {
       opacity: 0;
@@ -54,20 +63,33 @@
 
   #text {
     position: absolute;
-    top: 70%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     opacity: 0;
     font-size: 24px;
     color: #fff;
-    animation: fadeInText 2s 3s forwards;
+    text-align: center;
+    animation: fadeInText 2s 6s forwards;
+  }
+
+  #defaultGuy {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #fff;
+    opacity: 0;
+    animation: fadeInText 2s 4s forwards;
   }
 </style>
 </head>
 <body>
 <div id="container">
+  <div id="defaultGuy">Default Guy</div>
   <img id="image" src="https://raw.githubusercontent.com/Amarnathgoogle/Kill-default-/main/5412308efa9ae5c5c2da2268a9dc1287.png" alt="Image">
-  <div id="text">You will find a new mate soon. Don't worry Lisa.</div>
+  <div id="text">You will find a new mate soon</div>
 </div>
 </body>
 </html>
