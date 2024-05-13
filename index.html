@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animation</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+  }
+
+  #image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: cutAndLight 3s forwards, fadeInText 2s 3s forwards;
+  }
+
+  @keyframes cutAndLight {
+    0% {
+      clip-path: inset(0 0 0 0);
+      opacity: 0;
+    }
+    50% {
+      clip-path: inset(0 50% 0 0);
+      opacity: 1;
+    }
+    100% {
+      clip-path: inset(0 50% 0 50%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  #text {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    font-size: 24px;
+    color: #fff;
+    animation: fadeInText 2s 3s forwards;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <img id="image" src="https://raw.githubusercontent.com/Amarnathgoogle/Kill-default-/main/5412308efa9ae5c5c2da2268a9dc1287.png" alt="Image">
+  <div id="text">You will find a new mate soon. Don't worry Lisa.</div>
+</div>
+</body>
+</html>
